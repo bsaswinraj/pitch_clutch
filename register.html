@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Register — Pitch Clutch '26</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="nav">
+  <div class="nav-inner">
+
+    <a href="index.html" class="logo">
+      PITCH <span>CLUTCH</span> '26
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      <li><a href="prize.html">Prize</a></li>
+      <li><a href="team.html">Event Team</a></li>
+    </ul>
+
+    <a href="register.html">
+      <button class="nav-cta">Register Now</button>
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<header class="page-head">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      Squad up
+    </div>
+
+    <h1 class="display">
+      Register your team
+    </h1>
+
+    <p>
+      Enter your team details, complete the registration fee payment,
+      upload your payment proof and secure your place in Pitch Clutch '26.
+    </p>
+
+  </div>
+
+</header>
+
+
+<!-- ================= REGISTRATION ================= -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="form-wrap" id="formWrap">
+
+      <form id="registerForm" novalidate>
+
+
+        <!-- ================= TEAM ================= -->
+
+        <fieldset>
+
+          <legend>Team</legend>
+
+          <div class="field" id="teamNameField">
+
+            <label for="teamName">
+              Team name
+            </label>
+
+            <input
+              type="text"
+              id="teamName"
+              placeholder="e.g. Falcon Strikers"
+              required
+            >
+
+            <div class="err">
+              Enter your team name.
+            </div>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- ================= MEMBER 1 ================= -->
+
+        <fieldset>
+
+          <legend>Member 1</legend>
+
+
+          <div class="field" id="m1NameField">
+
+            <label for="m1Name">
+              Full name
+            </label>
+
+            <input
+              type="text"
+              id="m1Name"
+              required
+            >
+
+            <div class="err">
+              Enter this member's name.
+            </div>
+
+          </div>
+
+
+          <div class="field-row">
+
+            <div class="field" id="m1EmailField">
+
+              <label for="m1Email">
+                Gmail address
+              </label>
+
+              <input
+                type="email"
+                id="m1Email"
+                placeholder="name@gmail.com"
+                required
+              >
+
+              <div class="err">
+                Must be a valid address ending in @gmail.com.
+              </div>
+
+            </div>
+
+
+            <div class="field" id="m1PhoneField">
+
+              <label for="m1Phone">
+                Phone number
+              </label>
+
+              <input
+                type="tel"
+                id="m1Phone"
+                maxlength="10"
+                placeholder="10-digit number"
+                required
+              >
+
+              <div class="err">
+                Enter exactly 10 digits.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="field-row">
+
+            <div class="field" id="m1DeptField">
+
+              <label for="m1Dept">
+                Department
+              </label>
+
+              <select id="m1Dept" required>
+
+                <option value="">
+                  Choose department
+                </option>
+
+                <option value="CSE">
+                  CSE
+                </option>
+
+                <option value="ECE">
+                  ECE
+                </option>
+
+                <option value="EEE">
+                  EEE
+                </option>
+
+                <option value="ME">
+                  ME
+                </option>
+
+                <option value="AIDS">
+                  AIDS
+                </option>
+
+                <option value="ECS">
+                  ECS
+                </option>
+
+              </select>
+
+              <div class="err">
+                Choose a department.
+              </div>
+
+            </div>
+
+
+            <div class="field" id="m1SemField">
+
+              <label for="m1Sem">
+                Semester
+              </label>
+
+              <select id="m1Sem" required>
+
+                <option value="">
+                  Choose semester
+                </option>
+
+                <option value="S1">
+                  S1
+                </option>
+
+                <option value="S3">
+                  S3
+                </option>
+
+                <option value="S5">
+                  S5
+                </option>
+
+                <option value="S7">
+                  S7
+                </option>
+
+              </select>
+
+              <div class="err">
+                Choose a semester.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="field" id="m1CollegeField">
+
+            <label>
+              College
+            </label>
+
+            <div class="college-choice">
+
+              <div
+                class="college-opt active"
+                id="m1CollegeCep"
+              >
+                CEP
+              </div>
+
+              <div
+                class="college-opt"
+                id="m1CollegeOther"
+              >
+                Other college
+              </div>
+
+            </div>
+
+
+            <div
+              id="m1CollegeOtherWrap"
+              style="display:none;"
+            >
+
+              <input
+                type="text"
+                id="m1CollegeOtherInput"
+                placeholder="Enter your college name"
+              >
+
+            </div>
+
+
+            <input
+              type="hidden"
+              id="m1CollegeValue"
+              value="CEP"
+            >
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- ================= MEMBER 2 ================= -->
+
+        <fieldset>
+
+          <legend>Member 2</legend>
+
+
+          <div class="field" id="m2NameField">
+
+            <label for="m2Name">
+              Full name
+            </label>
+
+            <input
+              type="text"
+              id="m2Name"
+              required
+            >
+
+            <div class="err">
+              Enter this member's name.
+            </div>
+
+          </div>
+
+
+          <div class="field-row">
+
+            <div class="field" id="m2EmailField">
+
+              <label for="m2Email">
+                Gmail address
+              </label>
+
+              <input
+                type="email"
+                id="m2Email"
+                placeholder="name@gmail.com"
+                required
+              >
+
+              <div class="err">
+                Must be a valid address ending in @gmail.com.
+              </div>
+
+            </div>
+
+
+            <div class="field" id="m2PhoneField">
+
+              <label for="m2Phone">
+                Phone number
+              </label>
+
+              <input
+                type="tel"
+                id="m2Phone"
+                maxlength="10"
+                placeholder="10-digit number"
+                required
+              >
+
+              <div class="err">
+                Enter exactly 10 digits.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="field-row">
+
+            <div class="field" id="m2DeptField">
+
+              <label for="m2Dept">
+                Department
+              </label>
+
+              <select id="m2Dept" required>
+
+                <option value="">
+                  Choose department
+                </option>
+
+                <option value="CSE">
+                  CSE
+                </option>
+
+                <option value="ECE">
+                  ECE
+                </option>
+
+                <option value="EEE">
+                  EEE
+                </option>
+
+                <option value="ME">
+                  ME
+                </option>
+
+                <option value="AIDS">
+                  AIDS
+                </option>
+
+                <option value="ECS">
+                  ECS
+                </option>
+
+              </select>
+
+              <div class="err">
+                Choose a department.
+              </div>
+
+            </div>
+
+
+            <div class="field" id="m2SemField">
+
+              <label for="m2Sem">
+                Semester
+              </label>
+
+              <select id="m2Sem" required>
+
+                <option value="">
+                  Choose semester
+                </option>
+
+                <option value="S1">
+                  S1
+                </option>
+
+                <option value="S3">
+                  S3
+                </option>
+
+                <option value="S5">
+                  S5
+                </option>
+
+                <option value="S7">
+                  S7
+                </option>
+
+              </select>
+
+              <div class="err">
+                Choose a semester.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="field" id="m2CollegeField">
+
+            <label>
+              College
+            </label>
+
+            <div class="college-choice">
+
+              <div
+                class="college-opt active"
+                id="m2CollegeCep"
+              >
+                CEP
+              </div>
+
+              <div
+                class="college-opt"
+                id="m2CollegeOther"
+              >
+                Other college
+              </div>
+
+            </div>
+
+
+            <div
+              id="m2CollegeOtherWrap"
+              style="display:none;"
+            >
+
+              <input
+                type="text"
+                id="m2CollegeOtherInput"
+                placeholder="Enter your college name"
+              >
+
+            </div>
+
+
+            <input
+              type="hidden"
+              id="m2CollegeValue"
+              value="CEP"
+            >
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- ==================================================
+             PAYMENT SECTION
+             THIS COMES AFTER ALL REGISTRATION DETAILS
+        ================================================== -->
+
+        <fieldset class="payment-fieldset">
+
+          <legend>Registration Fee</legend>
+
+
+          <div class="payment-box">
+
+            <div class="payment-heading">
+              PAY THE REGISTRATION FEE <span>₹40</span>
+            </div>
+
+
+            <p class="payment-subtitle">
+              Complete the payment of ₹40 per team using the QR code below.
+            </p>
+
+
+            <div class="payment-content">
+
+
+              <!-- QR -->
+
+              <div class="payment-qr">
+
+                <img
+                  src="payment-qr.png"
+                  alt="PITCH CLUTCH registration payment QR code"
+                >
+
+              </div>
+
+
+              <!-- Payment information -->
+
+              <div class="payment-details">
+
+                <div class="fee-display">
+
+                  <small>
+                    TEAM REGISTRATION FEE
+                  </small>
+
+                  <strong>
+                    ₹40
+                  </strong>
+
+                </div>
+
+
+                <p>
+                  Scan the QR code using any UPI application
+                  and complete the payment.
+                </p>
+
+
+                <div class="upi-id">
+
+                  UPI ID:
+                  <strong>
+                    bsaswinraj@oksbi
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PAYMENT SCREENSHOT -->
+
+            <div class="payment-upload">
+
+              <label for="paymentScreenshot">
+
+                Upload your screenshot of payment
+
+              </label>
+
+
+              <p class="upload-description">
+
+                After completing the payment, upload a clear
+                screenshot of the successful transaction.
+
+              </p>
+
+
+              <input
+                type="file"
+                id="paymentScreenshot"
+                name="paymentScreenshot"
+                accept="image/jpeg,image/png,image/webp"
+                required
+              >
+
+
+              <div
+                id="fileName"
+                class="file-name"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- ================= SUBMIT ================= -->
+
+        <div class="submit-row">
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="submitBtn"
+          >
+            Submit Registration
+          </button>
+
+
+          <span
+            class="form-msg"
+            id="formMsg"
+          ></span>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- ================= SUCCESS ================= -->
+
+    <div
+      class="success-box"
+      id="successBox"
+      style="display:none;"
+    >
+
+      <div class="display">
+        You're in 🎉
+      </div>
+
+      <p>
+        Your team has been successfully registered
+        for Pitch Clutch '26.
+      </p>
+
+      <p>
+        Match details will be announced soon.
+      </p>
+
+      <div style="margin-top:20px;">
+
+        <a href="index.html">
+
+          <button class="btn btn-outline">
+            Back to Home
+          </button>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div
+    class="wrap"
+    style="
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+      width:100%;
+    "
+  >
+
+    <div class="fdisplay">
+      PITCH CLUTCH '26
+    </div>
+
+    <div>
+      An eFootball tournament, open to all eFootballers.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="app.js"></script>
+
+<script src="register.js"></script>
+
+<script src="pitch-effects.js"></script>
+
+
+</body>
+</html>

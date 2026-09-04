@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prize — Pitch Clutch '26</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   PRIZE AREA
+========================================================= */
+
+.prize-stage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 120px;
+    padding: 100px 20px 130px;
+    perspective: 1400px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   PRIZE CARD
+========================================================= */
+
+.prize-card {
+    width: 330px;
+    text-align: center;
+    position: relative;
+}
+
+.prize-title {
+    margin-bottom: 55px;
+}
+
+.prize-place {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.prize-card.first .prize-place {
+    color: #ffd84d;
+}
+
+.prize-card.second .prize-place {
+    color: #d8d8d8;
+}
+
+.prize-name {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TREASURE WRAPPER
+========================================================= */
+
+.treasure-wrapper {
+    position: relative;
+
+    width: 320px;
+    height: 290px;
+
+    margin: auto;
+
+    cursor: pointer;
+
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   IDLE JUMP
+========================================================= */
+
+.treasure-wrapper:not(.opened) {
+    animation: treasureFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes treasureFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   CHEST BODY
+========================================================= */
+
+.treasure-chest {
+
+    position: absolute;
+
+    left: 30px;
+    bottom: 20px;
+
+    width: 260px;
+    height: 145px;
+
+    border-radius: 10px 10px 22px 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6b350e 0%,
+            #a95d1d 25%,
+            #7b3e11 50%,
+            #b36a25 75%,
+            #542707 100%
+        );
+
+    border: 5px solid #422207;
+
+    box-shadow:
+        0 22px 35px rgba(0,0,0,.65),
+        inset 0 4px 8px rgba(255,255,255,.16),
+        inset 0 -15px 20px rgba(0,0,0,.35);
+
+    transform-style: preserve-3d;
+}
+
+
+/* Wood grain */
+
+.treasure-chest::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border-radius: 7px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.05) 0px,
+            rgba(255,255,255,.05) 2px,
+            transparent 2px,
+            transparent 38px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHEST METAL BANDS
+========================================================= */
+
+.chest-band {
+
+    position: absolute;
+
+    top: -4px;
+    bottom: -4px;
+
+    width: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #765000,
+            #ffe36b,
+            #b57b08,
+            #fff0a0,
+            #704800
+        );
+
+    box-shadow:
+        0 0 8px rgba(255,210,50,.4);
+
+    z-index: 5;
+}
+
+.chest-band.left {
+    left: 45px;
+}
+
+.chest-band.right {
+    right: 45px;
+}
+
+
+/* =========================================================
+   FRONT LOCK PLATE
+========================================================= */
+
+.chest-front {
+
+    position: absolute;
+
+    left: 50%;
+    top: 42px;
+
+    transform: translateX(-50%);
+
+    width: 58px;
+    height: 65px;
+
+    border: 4px solid #dba72e;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #71370d,
+            #a85d1c
+        );
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.5);
+
+    z-index: 8;
+}
+
+
+/* =========================================================
+   LOCK
+========================================================= */
+
+.chest-lock {
+
+    position: absolute;
+
+    left: 50%;
+    top: 54px;
+
+    transform: translateX(-50%);
+
+    width: 23px;
+    height: 32px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a86f06,
+            #ffe16b,
+            #a86f06
+        );
+
+    z-index: 10;
+}
+
+.chest-lock::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+
+    left: 50%;
+    top: -14px;
+
+    transform: translateX(-50%);
+
+    border: 4px solid #e0b33c;
+
+    border-bottom: 0;
+
+    border-radius: 12px 12px 0 0;
+}
+
+
+/* =========================================================
+   LID
+========================================================= */
+
+.chest-lid {
+
+    position: absolute;
+
+    left: 30px;
+    bottom: 160px;
+
+    width: 260px;
+    height: 105px;
+
+    transform-origin: 50% 100%;
+
+    transform-style: preserve-3d;
+
+    transform: rotateX(0deg);
+
+    transition:
+        transform .85s cubic-bezier(.2,.85,.25,1);
+
+    z-index: 30;
+}
+
+
+/* Curved lid */
+
+.lid-top {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 260px;
+    height: 105px;
+
+    border-radius:
+        135px 135px 12px 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8b4814,
+            #bd722b 25%,
+            #6c350d 55%,
+            #a95c1d 85%
+        );
+
+    border: 5px solid #422207;
+
+    box-shadow:
+        0 -5px 15px rgba(255,255,255,.1) inset,
+        0 10px 20px rgba(0,0,0,.5);
+}
+
+
+/* Lid bands */
+
+.lid-band {
+
+    position: absolute;
+
+    bottom: -2px;
+
+    width: 15px;
+    height: 100px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #765000,
+            #ffe36b,
+            #b57b08,
+            #fff0a0,
+            #704800
+        );
+
+    z-index: 5;
+}
+
+.lid-band.left {
+    left: 45px;
+}
+
+.lid-band.right {
+    right: 45px;
+}
+
+
+/* =========================================================
+   HINGES
+========================================================= */
+
+.hinge {
+
+    position: absolute;
+
+    width: 27px;
+    height: 15px;
+
+    bottom: 150px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff0a0,
+            #a66b05,
+            #f6cf55
+        );
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.5);
+
+    z-index: 40;
+}
+
+.hinge.left {
+    left: 78px;
+}
+
+.hinge.right {
+    right: 78px;
+}
+
+
+/* =========================================================
+   CASH PRIZE
+========================================================= */
+
+.cash-prize {
+
+    position: absolute;
+
+    left: 50%;
+    top: -35px;
+
+    transform:
+        translate(-50%, 25px)
+        scale(.7);
+
+    opacity: 0;
+
+    white-space: nowrap;
+
+    font-size: 26px;
+    font-weight: 950;
+
+    letter-spacing: 2px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        transform .65s cubic-bezier(.17,.89,.32,1.49);
+}
+
+
+/* First */
+
+.prize-card.first .cash-prize {
+
+    color: #ffd84d;
+
+    text-shadow:
+        0 0 8px #ffd84d,
+        0 0 25px rgba(255,200,30,.8),
+        0 0 45px rgba(255,180,0,.4);
+}
+
+
+/* Second */
+
+.prize-card.second .cash-prize {
+
+    color: #e4e4e4;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 22px rgba(220,220,220,.8);
+}
+
+
+/* =========================================================
+   OPENED
+========================================================= */
+
+.treasure-wrapper.opened .chest-lid {
+
+    transform:
+        rotateX(-115deg);
+}
+
+.treasure-wrapper.opened .cash-prize {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -15px)
+        scale(1);
+}
+
+
+/* =========================================================
+   CHEST BULGE
+========================================================= */
+
+.treasure-wrapper.opening .treasure-chest {
+
+    animation:
+        chestBulge .7s cubic-bezier(.15,.9,.3,1);
+}
+
+@keyframes chestBulge {
+
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform:
+            scale(1.1)
+            translateY(-10px);
+    }
+
+    50% {
+        transform:
+            scale(.96)
+            translateY(4px);
+    }
+
+    70% {
+        transform:
+            scale(1.05)
+            translateY(-4px);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   FULL SCREEN POPPER
+========================================================= */
+
+.popper-piece {
+
+    position: fixed;
+
+    width: 9px;
+    height: 17px;
+
+    border-radius: 2px;
+
+    pointer-events: none;
+
+    z-index: 99999;
+
+    opacity: 1;
+
+    animation:
+        popperBurst 1.9s cubic-bezier(.12,.8,.25,1)
+        forwards;
+}
+
+
+/* Burst */
+
+@keyframes popperBurst {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            rotate(0deg)
+            scale(1.3);
+    }
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                calc(var(--x) * .55),
+                calc(var(--y) * .55)
+            )
+            rotate(var(--r))
+            scale(1);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(var(--r))
+            scale(.65);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .prize-stage {
+
+        gap: 100px;
+
+        padding-top: 60px;
+    }
+
+    .prize-card {
+
+        width: 320px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
+
+<nav class="nav">
+
+    <div class="nav-inner">
+
+        <a href="index.html" class="logo">
+            PITCH <span>CLUTCH</span> '26
+        </a>
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="rules.html">Rules</a>
+            </li>
+
+            <li>
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+            </li>
+
+            <li>
+                <a href="prize.html">Prize</a>
+            </li>
+
+            <li>
+                <a href="team.html">Event Team</a>
+            </li>
+
+        </ul>
+
+        <a href="register.html">
+            <button class="nav-cta">
+                Register Now
+            </button>
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="page-head">
+
+    <div class="wrap">
+
+        <div class="kicker">
+            WHAT'S ON THE LINE
+        </div>
+
+        <h1 class="display">
+            Prize Pool
+        </h1>
+
+        <p>
+            Two teams walk away with cash.
+            Everyone else walks away with bragging rights.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     PRIZES
+======================================================= -->
+
+<section>
+
+<div class="wrap">
+
+<div class="prize-stage">
+
+
+    <!-- ===================================================
+         FIRST PRIZE — LEFT
+    ==================================================== -->
+
+    <div class="prize-card first">
+
+        <div class="prize-title">
+
+            <div class="prize-place">
+                1ST PLACE
+            </div>
+
+            <div class="prize-name">
+                CHAMPION
+            </div>
+
+        </div>
+
+
+        <div
+            class="treasure-wrapper"
+            data-prize="222"
+        >
+
+            <div class="cash-prize">
+                CASH PRIZE / ₹222
+            </div>
+
+
+            <!-- LID -->
+
+            <div class="chest-lid">
+
+                <div class="lid-top"></div>
+
+                <div class="lid-band left"></div>
+                <div class="lid-band right"></div>
+
+            </div>
+
+
+            <!-- HINGES -->
+
+            <div class="hinge left"></div>
+            <div class="hinge right"></div>
+
+
+            <!-- BODY -->
+
+            <div class="treasure-chest">
+
+                <div class="chest-band left"></div>
+                <div class="chest-band right"></div>
+
+                <div class="chest-front"></div>
+
+                <div class="chest-lock"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         SECOND PRIZE — RIGHT
+    ==================================================== -->
+
+    <div class="prize-card second">
+
+        <div class="prize-title">
+
+            <div class="prize-place">
+                2ND PLACE
+            </div>
+
+            <div class="prize-name">
+                RUNNER-UP
+            </div>
+
+        </div>
+
+
+        <div
+            class="treasure-wrapper"
+            data-prize="101"
+        >
+
+            <div class="cash-prize">
+                CASH PRIZE / ₹101
+            </div>
+
+
+            <!-- LID -->
+
+            <div class="chest-lid">
+
+                <div class="lid-top"></div>
+
+                <div class="lid-band left"></div>
+                <div class="lid-band right"></div>
+
+            </div>
+
+
+            <!-- HINGES -->
+
+            <div class="hinge left"></div>
+            <div class="hinge right"></div>
+
+
+            <!-- BODY -->
+
+            <div class="treasure-chest">
+
+                <div class="chest-band left"></div>
+                <div class="chest-band right"></div>
+
+                <div class="chest-front"></div>
+
+                <div class="chest-lock"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+<div
+    class="wrap"
+    style="
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        gap:12px;
+        width:100%;
+    "
+>
+
+    <div class="fdisplay">
+        PITCH CLUTCH '26
+    </div>
+
+    <div>
+        An eFootball tournament,
+        open to all eFootballers.
+    </div>
+
+</div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="pitch-effects.js"></script>
+
+
+<script>
+
+/* =========================================================
+   TREASURE CHEST CLICK
+========================================================= */
+
+document
+.querySelectorAll(".treasure-wrapper")
+.forEach(chest => {
+
+    chest.addEventListener("click", function () {
+
+        /* Prevent second activation */
+
+        if (
+            this.classList.contains("opened") ||
+            this.classList.contains("opening")
+        ) {
+            return;
+        }
+
+
+        /* Start chest bulge */
+
+        this.classList.add("opening");
+
+
+        /* Open lid */
+
+        setTimeout(() => {
+
+            this.classList.add("opened");
+
+        }, 180);
+
+
+        /* Fire popper */
+
+        setTimeout(() => {
+
+            createPopper(this);
+
+        }, 300);
+
+    });
+
+});
+
+
+/* =========================================================
+   POPPER
+========================================================= */
+
+function createPopper(chest) {
+
+    const rect =
+        chest.getBoundingClientRect();
+
+
+    /*
+     * Exact launch point.
+     * Starts from the top-middle of the chest.
+     */
+
+    const startX =
+        rect.left + rect.width / 2;
+
+    const startY =
+        rect.top + 75;
+
+
+    /*
+     * Large amount of particles.
+     */
+
+    const total = 110;
+
+
+    /*
+     * Event colors.
+     */
+
+    const colors = [
+
+        "#00ff66",
+        "#00c853",
+        "#ffd84d",
+        "#fff2a6",
+        "#ffffff",
+        "#cfcfcf",
+        "#9e9e9e"
+
+    ];
+
+
+    for (let i = 0; i < total; i++) {
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "popper-piece";
+
+
+        /*
+         * Random size.
+         */
+
+        const size =
+            5 + Math.random() * 9;
+
+        piece.style.width =
+            size + "px";
+
+        piece.style.height =
+            8 + Math.random() * 13 + "px";
+
+
+        /*
+         * Random direction.
+         *
+         * Mostly upward and outward
+         * so it looks like an actual
+         * celebration popper.
+         */
+
+        const angle =
+            Math.random() * Math.PI * 2;
+
+
+        const distance =
+            180 + Math.random() * 600;
+
+
+        const x =
+            Math.cos(angle) * distance;
+
+
+        const y =
+            Math.sin(angle) * distance - 180;
+
+
+        piece.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+
+        piece.style.setProperty(
+            "--y",
+            y + "px"
+        );
+
+
+        /*
+         * Random rotation.
+         */
+
+        piece.style.setProperty(
+            "--r",
+            (Math.random() * 1200 - 600) + "deg"
+        );
+
+
+        /*
+         * RANDOM VISIBLE COLOR
+         */
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+
+        /*
+         * Random starting rotation.
+         */
+
+        piece.style.transform =
+            "rotate(" +
+            (Math.random() * 360) +
+            "deg)";
+
+
+        /*
+         * Starting position.
+         */
+
+        piece.style.left =
+            startX + "px";
+
+        piece.style.top =
+            startY + "px";
+
+
+        /*
+         * Tiny stagger.
+         */
+
+        piece.style.animationDelay =
+            (Math.random() * .18) + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        /*
+         * Remove after animation.
+         */
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 2300);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
