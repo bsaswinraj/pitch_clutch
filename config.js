@@ -5,7 +5,7 @@
 // your Supabase project: Project Settings → API.
 // ============================================================
 
-const SUPABASE_URL = "https://fdfszveltpkyeedqwiju.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://fdfszveltpkyeedqwiju.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_e4sHix27-Z7ZHBbJsUnLtg_MNbA5_u1";
 
 // Shared Supabase client used across every page.
