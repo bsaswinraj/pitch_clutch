@@ -5,13 +5,189 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rules — Pitch Clutch '26</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* ============================================================
+   PITCH CLUTCH '26 — RULES PAGE
+   ============================================================ */
+
+.rules-section {
+  padding: 70px 0 90px;
+}
+
+.rules-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,164,58,0.07),
+      rgba(10,13,10,0.95)
+    );
+
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.rule-card:hover {
+  transform: translateX(5px);
+  border-color: rgba(0,164,58,.5);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,164,58,0.12),
+      rgba(10,13,10,0.98)
+    );
+}
+
+.rule-number {
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--primary);
+  color: #000;
+
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+
+  border-radius: 2px;
+}
+
+.rule-content {
+  flex: 1;
+}
+
+.rule-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.rule-text {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.rule-warning {
+  border-color: rgba(255,180,0,.28);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,180,0,.06),
+      rgba(10,13,10,.95)
+    );
+}
+
+.rule-warning:hover {
+  border-color: rgba(255,180,0,.5);
+}
+
+.rule-warning .rule-number {
+  background: #f5c542;
+}
+
+.rule-important {
+  border-color: rgba(255,70,70,.28);
+}
+
+.rule-important .rule-number {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+.rules-note {
+  margin-top: 30px;
+  padding: 22px;
+
+  border-left: 3px solid var(--primary);
+
+  background: rgba(0,164,58,.06);
+
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.rules-note strong {
+  color: var(--text);
+}
+
+@media (max-width:640px) {
+
+  .rules-section {
+    padding: 50px 0 70px;
+  }
+
+  .rule-card {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 17px;
+  }
+
+  .rule-number {
+    min-width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .rule-title {
+    font-size: 11px;
+  }
+
+  .rule-text {
+    font-size: 14px;
+  }
+
+}
+</style>
 </head>
+
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo">PITCH <span>CLUTCH</span> '26</a>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+
+    <a href="index.html" class="logo">
+      PITCH <span>CLUTCH</span> '26
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -20,38 +196,252 @@
       <li><a href="prize.html">Prize</a></li>
       <li><a href="team.html">Event Team</a></li>
     </ul>
-    <a href="register.html"><button class="nav-cta">Register Now</button></a>
+
+    <a href="register.html">
+      <button class="nav-cta">Register Now</button>
+    </a>
+
   </div>
 </nav>
 
+
 <header class="page-head">
   <div class="wrap">
+
     <div class="kicker">Tournament rules</div>
+
     <h1 class="display">Rules of play</h1>
-    <p>The full rulebook — match format, fouls, disputes, and disqualification terms — is being finalized.</p>
+
+    <p>
+      Follow these rules throughout the tournament.
+      Play fair, complete your matches on time, and respect your opponent.
+    </p>
+
   </div>
 </header>
 
-<section>
+
+<section class="rules-section">
+
   <div class="wrap">
-    <div class="soon">
-      <div class="display">Rules will be provided soon</div>
-      <p>Register now to secure your slot — the rulebook will be shared with all registered teams before the tournament begins.</p>
-      <div style="margin-top:26px;">
-        <a href="register.html"><button class="btn btn-primary">Register Now</button></a>
+
+    <div class="rules-container">
+
+      <div class="rules-list">
+
+        <!-- RULE 01 -->
+        <div class="rule-card">
+
+          <div class="rule-number">01</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Match Time</div>
+
+            <div class="rule-text">
+              Match duration must be strictly <strong>8 minutes</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 02 -->
+        <div class="rule-card">
+
+          <div class="rule-number">02</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Substitution</div>
+
+            <div class="rule-text">
+              A maximum of <strong>6 substitutions</strong> is allowed.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 03 -->
+        <div class="rule-card">
+
+          <div class="rule-number">03</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Extra Time</div>
+
+            <div class="rule-text">
+              Extra time must be set to <strong>OFF</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 04 -->
+        <div class="rule-card">
+
+          <div class="rule-number">04</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Penalty</div>
+
+            <div class="rule-text">
+              Penalty must be set to <strong>OFF</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 05 -->
+        <div class="rule-card">
+
+          <div class="rule-number">05</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Condition</div>
+
+            <div class="rule-text">
+              Player condition must be set to <strong>GOOD</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 06 -->
+        <div class="rule-card rule-important">
+
+          <div class="rule-number">06</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Match Deadline</div>
+
+            <div class="rule-text">
+              Matches must be completed strictly before the deadline.
+              Otherwise, the match will be counted as a
+              <strong>loss for both teams</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 07 -->
+        <div class="rule-card">
+
+          <div class="rule-number">07</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Result Submission</div>
+
+            <div class="rule-text">
+              The <strong>scoreline must be provided along with a screenshot
+              of the result</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 08 -->
+        <div class="rule-card">
+
+          <div class="rule-number">08</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">Fair Play</div>
+
+            <div class="rule-text">
+              All matches must be played <strong>fair and square</strong>.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RULE 09 -->
+        <div class="rule-card rule-warning">
+
+          <div class="rule-number">09</div>
+
+          <div class="rule-content">
+
+            <div class="rule-title">No Spamming</div>
+
+            <div class="rule-text">
+              <strong>Clear spamming will not be allowed.</strong>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
+
+      <div class="rules-note">
+        <strong>Important:</strong>
+        All participants are expected to follow the above rules throughout
+        the tournament. Failure to follow the rules may result in penalties
+        or disqualification.
+      </div>
+
+
+      <div style="text-align:center;margin-top:35px;">
+
+        <a href="register.html">
+          <button class="btn btn-primary">
+            Register Now
+          </button>
+        </a>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
+
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
-    <div class="fdisplay">PITCH CLUTCH '26</div>
-    <div>An eFootball tournament, open to all eFootballers.</div>
+
+  <div
+    class="wrap"
+    style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
+
+    <div class="fdisplay">
+      PITCH CLUTCH '26
+    </div>
+
+    <div>
+      An eFootball tournament, open to all eFootballers.
+    </div>
+
   </div>
+
 </footer>
+
 
 <script src="app.js"></script>
 <script src="pitch-effects.js"></script>
+
 </body>
 </html>
