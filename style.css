@@ -596,9 +596,13 @@ body::before{
 main,
 header,
 section,
-footer{
-  position:relative;
-  z-index:2;
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.nav {
+  z-index: 9999;
 }
 
 /* ---------- high-speed football / GOAL trail ---------- */
@@ -1195,4 +1199,90 @@ footer{
     font-size: 25px;
   }
 
+}
+
+/* =========================================================
+   MOBILE NAVIGATION — FINAL CLICK/STACKING FIX
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+  .nav {
+    position: sticky !important;
+    top: 0;
+    z-index: 9999 !important;
+  }
+
+  .nav-inner {
+    position: relative;
+    z-index: 10000 !important;
+  }
+
+  .nav-toggle {
+    position: relative;
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-links {
+    position: fixed !important;
+
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    z-index: 10001 !important;
+
+    background: #000 !important;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 20px 28px 28px;
+    gap: 18px;
+
+    transform: translateY(-140%);
+    transition: transform 0.25s ease;
+
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    pointer-events: auto !important;
+  }
+
+  .nav-links li {
+    position: relative;
+    z-index: 10002;
+    width: 100%;
+  }
+
+  .nav-links a {
+    position: relative;
+    z-index: 10003;
+
+    display: block;
+    width: 100%;
+
+    color: var(--text-muted);
+
+    pointer-events: auto !important;
+    touch-action: manipulation;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #00ff66;
+  }
+
+  /* Keep all page content below the mobile menu */
+  main,
+  header,
+  section,
+  footer {
+    position: relative;
+    z-index: 1 !important;
+  }
 }
